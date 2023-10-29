@@ -41,8 +41,6 @@ def delete_specific_state(state_id):
     objs = storage.all(State).values()
     state = [obj.to_dict() for obj in objs if obj.id == state_id]
     if state is not None:
-        print(f"STATE ==============> {state}")
-        print(f"state[0] ===================> {state[0]}")
         state.remove(state[0])
         for obj in objs:
             if obj.id == state_id:
@@ -81,7 +79,6 @@ def update_state(state_id):
         data = request.get_json()
         if not data:
             abort(400, "Not a JSON")
-        print(f"OBJECT =================> {obj}")
         obj.name = request.json['name']
         storage.save()
     else:
