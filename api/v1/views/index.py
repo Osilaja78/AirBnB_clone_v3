@@ -12,6 +12,7 @@ def status():
 
     return jsonify({'status': 'OK'})
 
+
 @app_views.route('/stats', methods=['GET'])
 def stats():
     """Returns count for all classes"""
@@ -28,5 +29,5 @@ def stats():
     obj_count = {}
     for cls in classes:
         obj_count[cls] = storage.count(classes[cls])
-    
+
     return jsonify(obj_count)
