@@ -80,7 +80,7 @@ class DBStorage:
 
         objs = models.storage.all(cls)
         for k, v in objs.items():
-            if k == f"{cls.__name__}.{id}":
+            if k == "{}.{}".format(cls.__name__, id):
                 return v
         return None
 
